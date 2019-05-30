@@ -1,0 +1,9 @@
+/export_img_data
+/img_data
+/log
+/object_detection
+/preprocessed_data
+/__pycache__
+/weights
+*.ipynb
+model.png
