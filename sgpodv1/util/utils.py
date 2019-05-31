@@ -14,7 +14,7 @@ def convert_labels(labels, labels_count):
     return labels
 
 def exchange_data(h, w):
-    base_dir = "./sgpodv1/rawdata/"
+    base_dir = "rawdata/"
     labels = os.listdir(base_dir)
     labels_count = len(labels)
     
@@ -60,15 +60,15 @@ def exchange_data(h, w):
     y_test = np.asarray(y_test)
 
     dataset = (x_train, y_train, x_test, y_test)
-    np.save("sgpodv1/dataset.npy", dataset)
+    np.save("npy/dataset.npy", dataset)
     print("\nDatasets created done.")
 
 def make_dataset():
-    base_dir = "./sgpodv1/rawdata/"
+    base_dir = "rawdata/"
     labels = os.listdir(base_dir)
     labels_count = len(labels)
 
-    x_train, y_train, x_test, y_test = np.load("./sgpodv1/dataset.npy", allow_pickle=True)
+    x_train, y_train, x_test, y_test = np.load("npy/dataset.npy", allow_pickle=True)
     x_train = convert_images(x_train)
     y_train = convert_labels(y_train, labels_count)
     x_test = convert_images(x_test)

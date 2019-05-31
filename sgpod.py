@@ -13,7 +13,7 @@ def main():
     parser.add_argument("--makedata", action="store_true")
     parser.add_argument("--train", action="store_true")
     parser.add_argument("--cifar10", action="store_true")
-    parser.add_argument("--epochs", type=int)
+    parser.add_argument("--i", type=int)
     parser.add_argument("--predict", type=int)
 
     args = parser.parse_args()
@@ -26,8 +26,8 @@ def main():
 
         x_train, y_train, x_test, y_test = make_dataset()
 
-        if args.epochs:
-            trainer.train(x_train, y_train, args.epochs)
+        if args.i:
+            trainer.train(x_train, y_train, args.i)
             trainer.eval(x_test, y_test)
         else:
             trainer.train(x_train, y_train)
@@ -43,8 +43,8 @@ def main():
 
         (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
 
-        if args.epochs:
-            trainer.train(x_train, y_train, args.epochs)
+        if args.i:
+            trainer.train(x_train, y_train, args.i)
             trainer.eval(x_test, y_test)
         else:
             trainer.train(x_train, y_train)
