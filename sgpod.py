@@ -13,8 +13,9 @@ def main():
     parser.add_argument("--makedata", action="store_true")
     parser.add_argument("--train", action="store_true")
     parser.add_argument("--cifar10", action="store_true")
-    parser.add_argument("--i", type=int)
-    parser.add_argument("--predict", type=int)
+    parser.add_argument("--cifar100", action="store_true")
+    # parser.add_argument("--i", type=int)
+    parser.add_argument("--predict", action="store_true")
 
     args = parser.parse_args()
 
@@ -22,12 +23,13 @@ def main():
         exchange_data(h, w)
     elif args.train:
         start = time.time()
-        trainer = Trainer(h, w, d)
-
         x_train, y_train, x_test, y_test = make_dataset()
 
-        if args.i:
-            trainer.train(x_train, y_train, args.i)
+        trainer = Trainer(x_train)
+
+
+        if args:
+            trainer.train(x_train, y_train)
             trainer.eval(x_test, y_test)
         else:
             trainer.train(x_train, y_train)
@@ -39,19 +41,46 @@ def main():
     elif args.cifar10:
         
         start = time.time()
-        trainer = Trainer(h, w, d)
-
         (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
 
-        if args.i:
-            trainer.train(x_train, y_train, args.i)
+        trainer = Trainer(x_train[0], 10)
+
+
+        if args:
+            trainer.train(x_train, y_train)
             trainer.eval(x_test, y_test)
         else:
             trainer.train(x_train, y_train)
 
         end = time.time() - start
         print("{:.2f}/s".format(end))
-    
+
+    elif args.cifar100:
+        
+        start = time.time()
+        (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar100.load_data()
+
+        trainer = Trainer(x_train[0], 100)
+
+
+        if args:
+            trainer.train(x_train, y_train)
+            trainer.eval(x_test, y_test)
+        else:
+            trainer.train(x_train, y_train)
+
+        end = time.time() - start
+        print("{:.2f}/s".format(end))
+
+    elif args.predict:
+        start = time.time()
+
+        (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+        trainer = Trainer(x_train[123], 10)
+        trainer.predict(x_train[0])
+
+        end = time.time() - start
+        print("Time: {:.2f}".format(end))
     else:
         try:
             raise Exception

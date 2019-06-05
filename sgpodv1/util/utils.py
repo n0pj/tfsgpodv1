@@ -85,3 +85,29 @@ def compose(*funcs):
         return reduce(lambda f, g: lambda *a, **kw: g(f(*a, **kw)), funcs)
     else:
         raise ValueError('Composition of empty sequence not supported.')
+
+def lr_schedule(i):
+    lr = 1e-3
+    if i > 35:
+        lr *= 0.5e-3
+    elif i > 30:
+        lr *= 1e-3
+    elif i > 25:
+        lr *= 1e-2
+    elif i > 20:
+        lr *= 1e-1
+    print('Learning rate: ', lr)
+    return lr
+
+# def lr_schedule(i):
+#     lr = 1e-3
+#     if i > 70:
+#         lr *= 0.5e-3
+#     elif i > 60:
+#         lr *= 1e-3
+#     elif i > 50:
+#         lr *= 1e-2
+#     elif i > 40:
+#         lr *= 1e-1
+#     print('Learning rate: ', lr)
+#     return lr
