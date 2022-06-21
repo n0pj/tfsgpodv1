@@ -8,7 +8,7 @@ h5py==2.9.0
 Keras-Applications==1.0.7
 Keras-Preprocessing==1.0.9
 Markdown==3.1
-numpy==1.16.3
+numpy==1.22.0
 opencv-python==4.1.0.25
 pkg-resources==0.0.0
 protobuf==3.7.1
@@ -33,7 +33,7 @@ Keras-Preprocessing==1.0.9
 kiwisolver==1.1.0
 Markdown==3.1
 matplotlib==3.0.3
-numpy==1.16.3
+numpy==1.22.0
 opencv-python==4.1.0.25
 pandas==0.24.2
 pkg-resources==0.0.0
@@ -61,7 +61,7 @@ Keras-Preprocessing==1.0.9
 kiwisolver==1.1.0
 Markdown==3.1
 matplotlib==3.0.3
-numpy==1.16.3
+numpy==1.22.0
 opencv-python==4.1.0.25
 pandas==0.24.2
 Pillow==6.0.0
@@ -90,7 +90,7 @@ Keras-Preprocessing==1.0.9
 kiwisolver==1.1.0
 Markdown==3.1
 matplotlib==3.0.3
-numpy==1.16.3
+numpy==1.22.0
 opencv-python==4.1.0.25
 pandas==0.24.2
 Pillow==6.0.0
@@ -121,7 +121,7 @@ Keras-Preprocessing==1.0.9
 kiwisolver==1.1.0
 Markdown==3.1
 matplotlib==3.0.3
-numpy==1.16.3
+numpy==1.22.0
 opencv-python==4.1.0.25
 pandas==0.24.2
 Pillow==6.0.0
@@ -177,7 +177,7 @@ mistune==0.8.4
 nbconvert==5.5.0
 nbformat==4.4.0
 notebook==5.7.8
-numpy==1.16.3
+numpy==1.22.0
 opencv-python==4.1.0.25
 pandas==0.24.2
 pandocfilters==1.4.2
